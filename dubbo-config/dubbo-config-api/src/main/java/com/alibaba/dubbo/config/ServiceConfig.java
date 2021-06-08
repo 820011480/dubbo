@@ -671,6 +671,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void exportLocal(URL url) {
+
         if (!Constants.LOCAL_PROTOCOL.equalsIgnoreCase(url.getProtocol())) {
             // 创建本地 Dubbo URL
             URL local = URL.valueOf(url.toFullString())

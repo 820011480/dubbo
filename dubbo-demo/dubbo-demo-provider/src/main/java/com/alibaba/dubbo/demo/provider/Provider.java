@@ -16,7 +16,10 @@
  */
 package com.alibaba.dubbo.demo.provider;
 
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.demo.provider.spi.InnerSpi;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Provider {
@@ -29,8 +32,15 @@ public class Provider {
         context.start();
 
 //        ProtocolConfig.destroyAll();
-
+       demoAdaptive();
         System.in.read(); // press any key to exit
+    }
+
+    private static void demoAdaptive() {
+        InnerSpi innerSpi =
+                ExtensionLoader.getExtensionLoader(InnerSpi.class).getAdaptiveExtension();
+        URL url = new URL("dubbo","localhost",  8081, "/test?print=wheel&work=robot");
+        innerSpi.testPrint(url, "this is inner demo");
     }
 
 }

@@ -53,4 +53,23 @@ public class RegistryStatusChecker implements StatusChecker {
         return new Status(level, buf.toString());
     }
 
+
+    public static void main(String[] args) {
+        int [] arr = {1,13,2,8,9};
+        System.out.println(test(arr));
+    }
+
+    private static String test(int[] arr) {
+
+        String str = "";
+        for (int i = 0; i < arr.length; i++) {
+            if(Integer.parseInt(str + arr[i]) > Integer.parseInt(arr[i] + str)){
+                str = str + arr[i];
+            }else {
+                str = arr[i] + str;
+            }
+        }
+        return str;
+    }
+
 }

@@ -44,7 +44,7 @@ limitations under the License.
     <!--<bean id="genericService" class="com.alibaba.dubbo.demo.provider.MyGenericService" />-->
 
     <!-- declare the service interface to be exported -->
-    <dubbo:service  interface="com.alibaba.dubbo.demo.DemoService" group="g1" ref="demoService" filter="demo" deprecated="false" callbacks="1000" timeout="200000" accesslog="true"
+    <dubbo:service scope="local"  interface="com.alibaba.dubbo.demo.DemoService" group="g1" ref="demoService" filter="demo" deprecated="false" callbacks="1000" timeout="200000" accesslog="true"
         >
     <!--<dubbo:service interface="com.alibaba.dubbo.demo.DemoService" protocol="dubbo" ref="demoService"/>-->
     <!--<dubbo:service id="sa" interface="com.alibaba.dubbo.demo.DemoService" protocol="dubbo" class="com.alibaba.dubbo.demo.provider.DemoServiceImpl">-->
